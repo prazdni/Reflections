@@ -6,22 +6,25 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIActions : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Button _button;
     [SerializeField] private Image _border;
+    private Button _button;
     private TMP_Text _text;
+    private AudioSource _audioSource;
     private void Start()
     {
         _border.fillAmount = 0.0f;
         _button = GetComponent<Button>();
+        _audioSource = GetComponent<AudioSource>();
         _button.onClick.AddListener(Task);
         _text = GetComponentInChildren<TMP_Text>();
+        _text.color = Color.gray;
     }
 
     private void Task()
     { 
-        Debug.Log("Cliecked!");
+        _audioSource.Play();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
