@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Music
+  - BackGround
+  - Reflection
+  - Trees
   layers:
   - Default
   - TransparentFX
@@ -14,10 +17,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - Trees
+  - Level
+  - Reflection
   - 
   - 
   - 
@@ -41,4 +44,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 3274313249
+    locked: 0
+  - name: Trees
+    uniqueID: 1340943987
+    locked: 0
+  - name: Level
+    uniqueID: 2786643955
+    locked: 0
+  - name: Reflection
+    uniqueID: 2008592643
     locked: 0
