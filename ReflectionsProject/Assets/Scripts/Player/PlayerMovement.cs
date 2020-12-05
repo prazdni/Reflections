@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Падает ли персонаж (true if velocity.y < 0)
     /// </summary>
-    public bool IsFalling => _body.velocity.y < 0;
+    public bool IsFalling => _body.velocity.y * _body.gravityScale < 0;
 
     [Header("Movement parameters")]
     [SerializeField] private float _movementSpeed;
