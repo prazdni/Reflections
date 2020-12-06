@@ -70,4 +70,10 @@ public class PlayerAnimationsController : MonoBehaviour
         if (_animatorController && _checkAnimationStates)
             PlayAnimation();
     }
+    
+    public void PlayEnd()
+    {
+        StartCoroutine(StopAnimationCheck(1000));
+        _animatorController.Play("Ending");
+    }
 }
