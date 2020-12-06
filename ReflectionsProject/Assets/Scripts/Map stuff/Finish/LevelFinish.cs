@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class LevelFinish : MonoBehaviour
 {
+    [SerializeField] private int _numberOfPlayers = 2;
     [SerializeField] private UnityEvent LevelEndsEvent;
 
     private int _reachedPlayers = 0; // количество уроков на финише
@@ -16,7 +17,7 @@ public class LevelFinish : MonoBehaviour
         else
             _reachedPlayers--;
 
-        if (_reachedPlayers >= 2)
+        if (_reachedPlayers >= _numberOfPlayers)
             LevelEndsEvent?.Invoke();
     }
 

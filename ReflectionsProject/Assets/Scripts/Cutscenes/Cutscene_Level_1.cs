@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerMovement), typeof(PlayerAnimationsController))]
-public class Cutscene_Level_2 : MonoBehaviour
+public class Cutscene_Level_1 : MonoBehaviour
 {
     private float _speed = 1.5f;
 
@@ -13,13 +12,12 @@ public class Cutscene_Level_2 : MonoBehaviour
 
     private IEnumerator StartCutscene()
     {
-        float time = 3.6f;
+        float time = 1.5f;
         StartCoroutine(_playerMovement.StopMovement(time));
         _playerAnimationsController.PlayStartAnimation(time);
         while (time > 0)
         {
-            if (time > 2.1f)
-                _transform.position += Vector3.right * Time.deltaTime * _speed;
+            _transform.position += Vector3.right * Time.deltaTime * _speed;
 
             time -= Time.deltaTime;
 
