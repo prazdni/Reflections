@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerDeathAbility : MonoBehaviour
 {
+    [SerializeField] private UnityEvent _deathEvent;
+
     public delegate void DeathEventHandler(DeathType deathType);
     /// <summary>
     /// Событие смерти персонажа
@@ -32,6 +35,7 @@ public class PlayerDeathAbility : MonoBehaviour
     {
         GetComponent<PlayerMovement>().Freeze();
         GetComponent<PlayerAnimationsController>().PlayDeathAnimation(_thisPlayerDied ? deathType : DeathType.Fade);
+        _deathEvent?.Invoke();
         Destroy(gameObject, 1f);
     }
 
