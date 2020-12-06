@@ -29,10 +29,10 @@ public class PlayerAnimationsController : MonoBehaviour
 
         StartCoroutine(StopAnimationCheck(1f));
     }
-    public void PlayStartAnimation()
+    public void PlayStartAnimation(float time = 3.6f)
     {
         _animatorController.Play($"{_mirrorAppear}");
-        StartCoroutine(StopAnimationCheck(3.6f));
+        StartCoroutine(StopAnimationCheck(time));
     }
 
     private void PlayAnimation()
