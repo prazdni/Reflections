@@ -1047,7 +1047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 711365274591169518, guid: 80fc085e09ec744c0900457df4615ade, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.24
+      value: -12.16
       objectReference: {fileID: 0}
     - target: {fileID: 711365274591169518, guid: 80fc085e09ec744c0900457df4615ade, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2863,9 +2863,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1957943470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8d2f5491ce749ba8492f914dc027fd, type: 3}
+  m_Script: {fileID: 11500000, guid: d2670e1d123e1420294a2a3d8aa50670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainPlayer: {fileID: 505452303}
 --- !u!1 &2120383280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3449,6 +3450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88fdc3518e7354a6d921b6d0d5f6cdb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _numberOfPlayers: 2
   LevelEndsEvent:
     m_PersistentCalls:
       m_Calls:
