@@ -8,12 +8,6 @@ using UnityEngine.UI;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField] private Canvas _menu;
-
-    public void StopTime()
-    {
-        Time.timeScale = 0.0f;
-    }
-    
     private void Start()
     {
         _menu.gameObject.SetActive(false);

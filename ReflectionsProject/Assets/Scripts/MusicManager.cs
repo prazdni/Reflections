@@ -8,13 +8,11 @@ public class MusicManager : MonoBehaviour
 {
     private void Awake()
     {
-        if (SceneManager.sceneCount > 1)
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Music");
+        
+        if (objects.Length > 1)
         {
-            var sounds = GetComponentsInChildren<AudioSource>();
-            foreach (var sound in sounds)
-            {
-                sound.volume = 1.0f;
-            }
+            Destroy(gameObject);
         }
 
         DontDestroyOnLoad(gameObject);

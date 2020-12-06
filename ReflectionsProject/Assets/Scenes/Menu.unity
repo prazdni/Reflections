@@ -887,7 +887,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99143a43d974ce47b9fa1d492af8e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _borders: []
+  _borders:
+  - {fileID: 2008630172}
+  - {fileID: 1961360577}
   _buttonBehaviour: 5
   _audioSource: {fileID: 8156957925040093554}
 --- !u!114 &1067275153
@@ -1582,7 +1584,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.15
+  m_fontSize: 29.85
   m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1856,7 +1858,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99143a43d974ce47b9fa1d492af8e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _borders: []
+  _borders:
+  - {fileID: 291309773}
+  - {fileID: 774592602}
   _buttonBehaviour: 4
   _audioSource: {fileID: 8156957925040093554}
 --- !u!114 &1960212313
@@ -2247,7 +2251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99143a43d974ce47b9fa1d492af8e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _borders: []
+  _borders:
+  - {fileID: 5159483567097122193}
+  - {fileID: 5159483566021065403}
   _buttonBehaviour: 2
   _audioSource: {fileID: 8156957925040093554}
 --- !u!222 &5159483565942766116
@@ -2522,7 +2528,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.5
+  m_fontSize: 30.35
   m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2666,7 +2672,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.35
+  m_fontSize: 30.45
   m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3156,7 +3162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99143a43d974ce47b9fa1d492af8e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _borders: []
+  _borders:
+  - {fileID: 5159483567385017604}
+  - {fileID: 5159483565942766123}
   _buttonBehaviour: 3
   _audioSource: {fileID: 8156957925040093554}
 --- !u!114 &5159483567493618804

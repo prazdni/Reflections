@@ -18,6 +18,7 @@ public class MainMenuButtonBehaviour : MonoBehaviour, IPointerEnterHandler, IPoi
     private TMP_Text _text;
     private void OnEnable()
     {
+        Time.timeScale = 1.0f;
         if (_buttonBehaviour == MainMenuButtonEffect.ContinueGame)
         {
             int level = PlayerPrefs.GetInt("maxLevel");

@@ -23,6 +23,10 @@ public class NextLevelTrigger : MonoBehaviour
         {
             SceneManager.LoadScene(_level - 1);
         }
-        
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
