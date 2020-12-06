@@ -20,7 +20,7 @@ public class PlayerDeathAbility : MonoBehaviour
 
     private void Death()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 
     private void OnEnable()

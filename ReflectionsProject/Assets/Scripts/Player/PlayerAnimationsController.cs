@@ -7,10 +7,11 @@ public class PlayerAnimationsController : MonoBehaviour
 {
     [SerializeField] private Animator _animatorController;
     [Header("Animations names")]
-    [SerializeField] private string _idle;
-    [SerializeField] private string _run;
-    [SerializeField] private string _movingUp;
-    [SerializeField] private string _movingDown;
+    [SerializeField] private string _idle = "Idle";
+    [SerializeField] private string _run = "Run";
+    [SerializeField] private string _movingUp = "Moving up";
+    [SerializeField] private string _movingDown = "Moving down";
+    [SerializeField] private string _death = "Death";
 
     private PlayerMovement _player;
 
@@ -32,13 +33,21 @@ public class PlayerAnimationsController : MonoBehaviour
         }
     }
 
-    private void Awake()
+    private void OnEnable()
+    {
+        PlayerDeathAbility.DeathEvent += () => { _animatorController.Play($"{_death}"); };
+    }
+    private void Start()
     {
         _player = GetComponent<PlayerMovement>();
     }
     private void Update()
     {
-        if (_animatorController)
+        if (_animatorController && _player.IsAlive)
             PlayAnimation();
+    }
+    private void OnDisable()
+    {
+        PlayerDeathAbility.DeathEvent -= () => { _animatorController.Play($"{_death}"); };
     }
 }
