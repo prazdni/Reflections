@@ -4,22 +4,28 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class ButtonBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Image _border;
+    [SerializeField] private Image[] _borders;
     private Button _button;
     private TMP_Text _text;
     private AudioSource _audioSource;
-    private void Start()
+    private Color _textColor;
+    private void Awake()
     {
-        _border.fillAmount = 0.0f;
+        foreach (var t in _borders)
+        {
+            t.fillAmount = 0.0f;
+        }
+        
         _button = GetComponent<Button>();
         _audioSource = GetComponent<AudioSource>();
         _button.onClick.AddListener(Task);
         _text = GetComponentInChildren<TMP_Text>();
-        _text.color = Color.gray;
+        _text.color = new Color(0.6078432f, 0.4509804f, 0.4509804f);
     }
 
     private void Task()
@@ -29,13 +35,21 @@ public class ButtonBehaviour : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _border.fillAmount = 1.0f;
-        _text.color = Color.black;
+        foreach (var t in _borders)
+        {
+            t.fillAmount = 1.0f;
+        }
+
+        _text.color = new Color(0.4078432f, 0.1176471f, 0.1176471f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _border.fillAmount = 0.0f;
-        _text.color = Color.gray;
+        foreach (var t in _borders)
+        {
+            t.fillAmount = 0.0f;
+        }
+
+        _text.color = new Color(0.6078432f, 0.4509804f, 0.4509804f);
     }
 }
