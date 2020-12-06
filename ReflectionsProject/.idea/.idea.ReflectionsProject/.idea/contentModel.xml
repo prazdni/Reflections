@@ -10,7 +10,9 @@
           <e p="ButtonBehaviour.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
           <e p="Cutscenes" t="Include">
+            <e p="Cutscene_Level_1.cs" t="Include" />
             <e p="Cutscene_Level_2.cs" t="Include" />
+            <e p="Mirrored_Cutscene_Level_2.cs" t="Include" />
           </e>
           <e p="GameStarter.cs" t="Include" />
           <e p="LevelSaver.cs" t="Include" />
@@ -35,6 +37,8 @@
           </e>
           <e p="SceneMusicManager.cs" t="Include" />
           <e p="SongEnable.cs" t="Include" />
+          <e p="SoundController.cs" t="Include" />
+          <e p="WordController.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">

@@ -6,11 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class NextLevelTrigger : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    [SerializeField] private int _level;
+    
+    public void NextLevel()
     {
-        if (other.CompareTag("Player"))
-        {
-            SceneManager.LoadScene(1);
-        }
+        SceneManager.LoadScene(_level);
     }
 }
