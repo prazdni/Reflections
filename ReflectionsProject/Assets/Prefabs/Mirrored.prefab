@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 711365274591169514}
   - component: {fileID: 711365274591169515}
   - component: {fileID: 711365274591169512}
+  - component: {fileID: 2544583254323779492}
   m_Layer: 0
   m_Name: Mirrored
   m_TagString: Player
@@ -229,8 +230,9 @@ MonoBehaviour:
   _movingUp: Moving up
   _movingDown: Moving down
   _fadeDeath: Fade death
-  _thisIsMirroredBoi: 1
   _waterDeath: Water death
+  _thisIsMirroredBoi: 1
+  _mirrorAppear: Mirror appear
 --- !u!114 &711365274591169512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,6 +245,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 379184fd871964a148e85b55f9376fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2544583254323779492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711365274591169513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a8d2f5491ce749ba8492f914dc027fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 0
 --- !u!1 &711365274689241850
 GameObject:
   m_ObjectHideFlags: 0

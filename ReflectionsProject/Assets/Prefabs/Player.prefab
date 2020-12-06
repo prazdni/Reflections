@@ -126,7 +126,10 @@ MonoBehaviour:
   _run: Run
   _movingUp: Moving up
   _movingDown: Moving down
-  _death: Death
+  _fadeDeath: Fade death
+  _waterDeath: Water death
+  _thisIsMirroredBoi: 0
+  _mirrorAppear: Mirror appear
 --- !u!114 &7789312360858361973
 MonoBehaviour:
   m_ObjectHideFlags: 0

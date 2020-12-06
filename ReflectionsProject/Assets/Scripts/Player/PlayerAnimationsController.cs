@@ -11,11 +11,29 @@ public class PlayerAnimationsController : MonoBehaviour
     [SerializeField] private string _run = "Run";
     [SerializeField] private string _movingUp = "Moving up";
     [SerializeField] private string _movingDown = "Moving down";
+    [Header("Special animations")]
     [SerializeField] private string _fadeDeath = "Fade death";
-    [SerializeField] private bool _thisIsMirroredBoi = false;
     [SerializeField] private string _waterDeath = "Water death";
+    [SerializeField] private bool _thisIsMirroredBoi = false;
+    [SerializeField] private string _mirrorAppear = "Mirror appear";
 
     private PlayerMovement _player;
+    private bool _checkAnimationStates = true;
+
+    public void PlayDeathAnimation(PlayerDeathAbility.DeathType deathType)
+    {
+        if (_thisIsMirroredBoi || deathType == PlayerDeathAbility.DeathType.Fade)
+            _animatorController.Play($"{_fadeDeath}");
+        else if (deathType == PlayerDeathAbility.DeathType.Water)
+            _animatorController.Play($"{_waterDeath}");
+
+        StartCoroutine(StopAnimationCheck(1f));
+    }
+    public void PlayStartAnimation()
+    {
+        _animatorController.Play($"{_mirrorAppear}");
+        StartCoroutine(StopAnimationCheck(3.6f));
+    }
 
     private void PlayAnimation()
     {
@@ -34,12 +52,13 @@ public class PlayerAnimationsController : MonoBehaviour
                 _animatorController.Play($"{_idle}");
         }
     }
-    public void PlayeyDeathAnimation(PlayerDeathAbility.DeathType deathType)
+    private IEnumerator StopAnimationCheck(float time)
     {
-        if (_thisIsMirroredBoi || deathType == PlayerDeathAbility.DeathType.Fade)
-            _animatorController.Play($"{_fadeDeath}");
-        else if (deathType == PlayerDeathAbility.DeathType.Water)
-            _animatorController.Play($"{_waterDeath}");
+        _checkAnimationStates = false;
+
+        yield return new WaitForSeconds(time);
+
+        _checkAnimationStates = true;
     }
 
     private void Start()
@@ -48,7 +67,7 @@ public class PlayerAnimationsController : MonoBehaviour
     }
     private void Update()
     {
-        if (_animatorController && _player.IsAlive)
+        if (_animatorController && _checkAnimationStates)
             PlayAnimation();
     }
 }
