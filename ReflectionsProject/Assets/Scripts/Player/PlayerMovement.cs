@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void Jump()
     {
-        if (_isGrounded && _jumpTime <= 0)
+        if (_isGrounded && _jumpTime <= 0 && _isAlive)
         {
             _body.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
             _jumpTime = _jumpCooldown;
