@@ -9,6 +9,9 @@
         <e p="Scripts" t="Include">
           <e p="ButtonBehaviour.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
+          <e p="Cutscenes" t="Include">
+            <e p="Cutscene_Level_2.cs" t="Include" />
+          </e>
           <e p="GameStarter.cs" t="Include" />
           <e p="LevelSaver.cs" t="Include" />
           <e p="MainMenuButtonBehaviour.cs" t="Include" />
