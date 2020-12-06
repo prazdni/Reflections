@@ -78,6 +78,12 @@ public class PlayerMovement : MonoBehaviour
                 _directionState = DirectionState.Left;
         }
     }
+    public void StopMovement()
+    {
+        _isAlive = false;
+        _body.gravityScale = 0;
+        _body.velocity = Vector2.zero;
+    }
 
     private void Start()
     {
@@ -88,10 +94,6 @@ public class PlayerMovement : MonoBehaviour
             _body.gravityScale *= -1;
             _jumpForce *= -1;
         }
-    }
-    private void OnEnable()
-    {
-        PlayerDeathAbility.DeathEvent += () => { _isAlive = false; _body.gravityScale = 0; _body.velocity = Vector2.zero; };
     }
     private void Update()
     {
@@ -116,10 +118,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _body.velocity = new Vector2((_directionState == DirectionState.Right ? 1 : -1) * _movementSpeed * Time.fixedDeltaTime, _body.velocity.y);
         }
-    }
-    private void OnDisable()
-    {
-        PlayerDeathAbility.DeathEvent -= () => { _isAlive = false; _body.gravityScale = 0; _body.velocity = Vector2.zero; };
     }
 
     private enum DirectionState

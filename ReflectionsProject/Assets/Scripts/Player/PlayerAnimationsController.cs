@@ -11,7 +11,9 @@ public class PlayerAnimationsController : MonoBehaviour
     [SerializeField] private string _run = "Run";
     [SerializeField] private string _movingUp = "Moving up";
     [SerializeField] private string _movingDown = "Moving down";
-    [SerializeField] private string _death = "Death";
+    [SerializeField] private string _fadeDeath = "Fade death";
+    [SerializeField] private bool _thisIsMirroredBoi = false;
+    [SerializeField] private string _waterDeath = "Water death";
 
     private PlayerMovement _player;
 
@@ -32,11 +34,14 @@ public class PlayerAnimationsController : MonoBehaviour
                 _animatorController.Play($"{_idle}");
         }
     }
-
-    private void OnEnable()
+    public void PlayeyDeathAnimation(PlayerDeathAbility.DeathType deathType)
     {
-        PlayerDeathAbility.DeathEvent += () => { _animatorController.Play($"{_death}"); };
+        if (_thisIsMirroredBoi || deathType == PlayerDeathAbility.DeathType.Fade)
+            _animatorController.Play($"{_fadeDeath}");
+        else if (deathType == PlayerDeathAbility.DeathType.Water)
+            _animatorController.Play($"{_waterDeath}");
     }
+
     private void Start()
     {
         _player = GetComponent<PlayerMovement>();
@@ -45,9 +50,5 @@ public class PlayerAnimationsController : MonoBehaviour
     {
         if (_animatorController && _player.IsAlive)
             PlayAnimation();
-    }
-    private void OnDisable()
-    {
-        PlayerDeathAbility.DeathEvent -= () => { _animatorController.Play($"{_death}"); };
     }
 }
