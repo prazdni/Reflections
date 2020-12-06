@@ -66,6 +66,21 @@ public class PlayerMovement : MonoBehaviour
             _jumpTime = _jumpCooldown;
         }
     }
+    public void Freeze()
+    {
+        _isAlive = false;
+        _body.gravityScale = 0;
+        _body.velocity = Vector2.zero;
+    }
+
+    public IEnumerator StopMovement(float time)
+    {
+        _isAlive = false;
+
+        yield return new WaitForSeconds(time);
+
+        _isAlive = true;
+    }
 
     private void FlipToRightDirection(DirectionState direction)
     {
@@ -77,12 +92,6 @@ public class PlayerMovement : MonoBehaviour
             else
                 _directionState = DirectionState.Left;
         }
-    }
-    public void StopMovement()
-    {
-        _isAlive = false;
-        _body.gravityScale = 0;
-        _body.velocity = Vector2.zero;
     }
 
     private void Start()

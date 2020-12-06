@@ -30,8 +30,8 @@ public class PlayerDeathAbility : MonoBehaviour
 
     private void Death(DeathType deathType)
     {
-        GetComponent<PlayerMovement>().StopMovement();
-        GetComponent<PlayerAnimationsController>().PlayeyDeathAnimation(_thisPlayerDied ? deathType : DeathType.Fade);
+        GetComponent<PlayerMovement>().Freeze();
+        GetComponent<PlayerAnimationsController>().PlayDeathAnimation(_thisPlayerDied ? deathType : DeathType.Fade);
         Destroy(gameObject, 1f);
     }
 
