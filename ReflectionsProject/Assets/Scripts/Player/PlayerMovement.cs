@@ -17,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     /// Падает ли персонаж (true if velocity.y < 0)
     /// </summary>
     public bool IsFalling => _body.velocity.y * _body.gravityScale < 0;
+    /// <summary>
+    /// Жив ли персонаж
+    /// </summary>
+    public bool IsAlive => _isAlive;
 
     [Header("Movement parameters")]
     [SerializeField] private float _movementSpeed;
@@ -26,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private LayerMask _whatIsGround;
 
+    private bool _isAlive = true;
     private DirectionState _directionState = DirectionState.Right;
     private bool _isMoving = false, _isGrounded = false;
     private Rigidbody2D _body;
@@ -64,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FlipToRightDirection(DirectionState direction)
     {
-        if (direction != _directionState)
+        if (direction != _directionState && _isAlive)
         {
             transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
             if (_directionState == DirectionState.Left)
@@ -72,6 +77,12 @@ public class PlayerMovement : MonoBehaviour
             else
                 _directionState = DirectionState.Left;
         }
+    }
+    public void StopMovement()
+    {
+        _isAlive = false;
+        _body.gravityScale = 0;
+        _body.velocity = Vector2.zero;
     }
 
     private void Start()
@@ -103,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (_isMoving)
+        if (_isMoving && _isAlive)
         {
             _body.velocity = new Vector2((_directionState == DirectionState.Right ? 1 : -1) * _movementSpeed * Time.fixedDeltaTime, _body.velocity.y);
         }
